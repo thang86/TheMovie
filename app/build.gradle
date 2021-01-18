@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -19,6 +20,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            // defining the build date
+            buildConfigField "long", "BUILD_DATE", System.currentTimeMillis() + "L"
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
+            buildConfigField("String", "API_KEY", "\"5a3e2f4478de0a043e7456cbb9c5f6c7\"")
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -31,6 +38,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    dataBinding {
+        enabled true
+    }
 }
 
 dependencies {
@@ -40,7 +50,36 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    ////sdp instate for dp in layout
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    ////for optimize perfomance
+//    implementation 'com.github.vantuan88291:CustomLoadingBar:2.0.2'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    // Rx retrofi
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    //log
+    implementation 'com.blankj:utilcode:1.5.1'
+    ///room sqlite
+    implementation 'androidx.room:room-runtime:2.2.1'
+    kapt 'androidx.room:room-compiler:2.2.1'
+    androidTestImplementation 'androidx.room:room-testing:2.2.1'
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.1.0"
+    ////lifecycler aware
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.1.0'
+
+    //gson Google
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+
 }
