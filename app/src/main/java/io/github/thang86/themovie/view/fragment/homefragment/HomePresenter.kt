@@ -53,7 +53,7 @@ class HomePresenter(val v: HomeContract) : BaseInteractor(), LifecycleObserver, 
             }
 
             override fun onGetApiComplete(response: Response<NowMovie>) {
-
+                // Log ....
                 Log.d("Thang86",""+response.body()?.totalResults)
             }
         }
