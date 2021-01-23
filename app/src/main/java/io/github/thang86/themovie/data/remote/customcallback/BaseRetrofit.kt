@@ -60,7 +60,7 @@ abstract class BaseRetrofit<T>(callback: Call<T>, internal var view: BaseView) {
     }
 
     private fun getMessage(response: Response<T>): String {
-        var mess = ""
+        var mess: String
         try {
             val errorBody = response.errorBody()!!.string()
             val jObjError = JSONObject(errorBody)

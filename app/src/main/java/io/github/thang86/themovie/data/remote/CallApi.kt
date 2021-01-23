@@ -3,7 +3,9 @@ package io.github.thang86.themovie.data.remote
 
 import io.github.thang86.themovie.data.local.model.CommonData
 import io.github.thang86.themovie.data.local.model.Data
+import io.github.thang86.themovie.data.local.model.MostPopular
 import io.github.thang86.themovie.data.local.model.NowMovie
+import io.github.thang86.themovie.data.local.model.detail.MovieDetail
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -13,13 +15,14 @@ import retrofit2.http.*
  */
 @JvmSuppressWildcards
 interface CallApi {
-    @GET("api")
-    fun getList(): Call<CommonData<Data>>
-
-    @FormUrlEncoded
-    @POST("api")
-    fun listMore(): Call<CommonData<Data>>
-
     @GET("/3/movie/now_playing")
-    fun getNowPlayingMovie(@QueryMap params:MutableMap<String,String>): Call<NowMovie>
+    fun getNowPlayingMovie(@QueryMap params: MutableMap<String, String>): Call<NowMovie>
+
+    @GET("/3/movie/popular")
+    fun getMostPopular(@Query("api_key") apiKey: String): Call<MostPopular>
+
+    // https://api.themoviedb.org/3/movie/{MOVIE_ID}?api_key={YOUR_KEY}
+    @GET("/3/movie/{id}")
+    fun getDetailMovie(@Path("id") id: String,
+                       @Query("api_key") apiKey: String): Call<MovieDetail>
 }

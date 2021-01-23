@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/homeFragment"
+    >
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="io.github.thang86.themovie.view.fragment.homefragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/home_fragment" />
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="io.github.thang86.themovie.view.fragment.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
+</navigation>

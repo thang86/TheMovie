@@ -31,7 +31,7 @@ class About : BaseFragment(), AboutContract {
     override fun viewCreated(view: View, savedInstanceState: Bundle?) {
 
         lifecycle.addObserver(AboutPresenter.instance.setCallback(this))
-        title.setText(mContext()!!.getItem())
+//        title.setText(mContext()!!.getItem())
 
         object : ObserveEasy(){
             override fun getDispose(): AutoDisposable? {

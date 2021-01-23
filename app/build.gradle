@@ -15,7 +15,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -25,6 +25,7 @@ android {
             buildConfigField "long", "BUILD_DATE", System.currentTimeMillis() + "L"
             buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
             buildConfigField("String", "API_KEY", "\"5a3e2f4478de0a043e7456cbb9c5f6c7\"")
+            buildConfigField("String", "IMAGE_URL", "\"https://image.tmdb.org/t/p/w500\"")
         }
         release {
             minifyEnabled false
@@ -57,6 +58,9 @@ dependencies {
 
     ////sdp instate for dp in layout
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
     ////for optimize perfomance
 //    implementation 'com.github.vantuan88291:CustomLoadingBar:2.0.2'
     implementation 'androidx.multidex:multidex:2.0.1'
@@ -78,8 +82,12 @@ dependencies {
     ////lifecycler aware
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.1.0'
 
+    implementation 'com.squareup.picasso:picasso:2.5.2'
     //gson Google
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation "androidx.cardview:cardview:1.0.0"
 
 
 }

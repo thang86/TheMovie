@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/partial_loading_now_playing_movie"
+                layout="@layout/partial_loading_now_playing_movie"
+                tools:visibility="visible" />
+
+            <include
+                android:id="@+id/partial_now_playing_movie"
+                layout="@layout/partial_now_playing_movie"
+                tools:visibility="invisible" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/partial_loading_most_popular_movie"
+                layout="@layout/partial_loading_most_popular_movie"
+                tools:visibility="visible" />
+
+            <include
+                android:id="@+id/partial_most_popular_movie"
+                layout="@layout/partial_most_popular_movie"
+                tools:visibility="invisible" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

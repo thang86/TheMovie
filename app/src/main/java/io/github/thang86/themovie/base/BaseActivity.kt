@@ -26,20 +26,6 @@ open class BaseActivity : AppCompatActivity(), BaseView {
         super.onStart()
     }
 
-    protected fun addFragment(fragment: Fragment?) {
-        if (fragment != null) {
-            val fragmentManager = supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.setCustomAnimations(
-                    android.R.anim.fade_in,
-                    android.R.anim.fade_out
-            )
-            fragmentTransaction.replace(R.id.contentHome, fragment)
-            fragmentTransaction.addToBackStack(fragment.javaClass.simpleName)
-            fragmentTransaction.commitAllowingStateLoss()
-        }
-    }
-
 
     override fun setErrorParent(data: Any) {
 
