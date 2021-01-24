@@ -1,10 +1,13 @@
 package io.github.thang86.themovie.view.fragment.homefragment.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Callback
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import io.github.thang86.themovie.BuildConfig
 import io.github.thang86.themovie.R
@@ -49,6 +52,7 @@ class NowMovieAdapter :
             val imageUrl = BuildConfig.IMAGE_URL.plus(movie.posterPath)
             Picasso.with(itemView.context)
                 .load(imageUrl)
+                .networkPolicy(NetworkPolicy.OFFLINE)
                 .placeholder(
                     ContextCompat.getDrawable(
                         itemView.context,
@@ -67,16 +71,16 @@ class NowMovieAdapter :
         override fun onClick(v: View?) {
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
-                listener?.onItemNowPlayingClick(movies[position].id.toString()!!)
+                listener.onItemNowPlayingClick(movies[position].id.toString())
             }
         }
     }
 
     interface OnItemNowPlayingClick {
-        fun onItemNowPlayingClick(movieId: String);
+        fun onItemNowPlayingClick(movieId: String)
     }
 
-    public fun setOnItemNowPlayingClick(onItemClick: OnItemNowPlayingClick) {
+     fun setOnItemNowPlayingClick(onItemClick: OnItemNowPlayingClick) {
         this.listener = onItemClick
     }
 
