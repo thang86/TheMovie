@@ -1,13 +1,14 @@
 package io.github.thang86.themovie.data.remote
 
 
-import io.github.thang86.themovie.data.local.model.CommonData
-import io.github.thang86.themovie.data.local.model.Data
 import io.github.thang86.themovie.data.local.model.MostPopular
 import io.github.thang86.themovie.data.local.model.NowMovie
 import io.github.thang86.themovie.data.local.model.detail.MovieDetail
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
+import retrofit2.http.QueryMap
 
 /**
  *

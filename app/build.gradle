@@ -62,7 +62,6 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
     ////for optimize perfomance
-//    implementation 'com.github.vantuan88291:CustomLoadingBar:2.0.2'
     implementation 'androidx.multidex:multidex:2.0.1'
     // Rx retrofi
     implementation 'io.reactivex.rxjava2:rxjava:2.2.12'
@@ -72,11 +71,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     //log
     implementation 'com.blankj:utilcode:1.5.1'
-    ///room sqlite
-    implementation 'androidx.room:room-runtime:2.2.1'
-    kapt 'androidx.room:room-compiler:2.2.1'
-    androidTestImplementation 'androidx.room:room-testing:2.2.1'
-    // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "androidx.lifecycle:lifecycle-common-java8:2.1.0"
     ////lifecycler aware

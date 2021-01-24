@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.item_now_playing_movie.view.*
 class NowMovieAdapter :
     RecyclerView.Adapter<NowMovieAdapter.ViewHolder>() {
     private lateinit var movies: List<Result>
+    private lateinit var listener: OnItemNowPlayingClick
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         LayoutInflater.from(parent.context)
@@ -36,9 +37,13 @@ class NowMovieAdapter :
 
     override fun getItemCount(): Int = movies.size
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
         private val imageMovie = itemView.image_avatar_playing_movie!!
 
+        init {
+            itemView.setOnClickListener(this)
+        }
 
         fun bind(movie: Result) {
             val imageUrl = BuildConfig.IMAGE_URL.plus(movie.posterPath)
@@ -58,6 +63,21 @@ class NowMovieAdapter :
                 )
                 .into(imageMovie)
         }
+
+        override fun onClick(v: View?) {
+            val position = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener?.onItemNowPlayingClick(movies[position].id.toString()!!)
+            }
+        }
+    }
+
+    interface OnItemNowPlayingClick {
+        fun onItemNowPlayingClick(movieId: String);
+    }
+
+    public fun setOnItemNowPlayingClick(onItemClick: OnItemNowPlayingClick) {
+        this.listener = onItemClick
     }
 
 }

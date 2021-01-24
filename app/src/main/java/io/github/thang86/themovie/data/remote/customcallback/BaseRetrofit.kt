@@ -28,13 +28,13 @@ abstract class BaseRetrofit<T>(callback: Call<T>, internal var view: BaseView) {
                             onGetApiComplete(response)
                         } catch (e: Exception) {
                             onFail(e.localizedMessage)
-                            LogUtils.a("Exeption fire: $e")
+                            LogUtils.a("Exeption afire: $e")
                         }
 
                     } else {
                         onFail(getMessage(response))
                         view.setErrorParent(getMessage(response))
-                        LogUtils.a("response not successful: $response")
+                        LogUtils.a("response : $response")
 
                     }
                     onLoadComplete()
@@ -46,7 +46,7 @@ abstract class BaseRetrofit<T>(callback: Call<T>, internal var view: BaseView) {
                     } else {
                         onFail(t.localizedMessage)
                     }
-                    LogUtils.a("onError: $t")
+                    LogUtils.a("Errors: $t")
                     onLoadComplete()
                 }
             })

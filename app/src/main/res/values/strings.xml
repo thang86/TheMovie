@@ -19,4 +19,12 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_movie_title">Movie Titlte</string>
+    <string name="empty" />
+    <string name="text_overview">Overview</string>
+    <string name="text_action_adventure">Adventure</string>
+    <string name="text_action">Action</string>
+    <string name="text_science_fiction">Science fiction</string>
+    <string name="text_most_popular">Most Popular</string>
+    <string name="text_playing_now">Playing Now</string>
 </resources>

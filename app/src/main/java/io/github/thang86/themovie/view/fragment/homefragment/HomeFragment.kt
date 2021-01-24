@@ -1,20 +1,15 @@
 package io.github.thang86.themovie.view.fragment.homefragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.blankj.utilcode.util.LogUtils
-import io.github.thang86.themovie.base.BaseFragment
-import io.github.thang86.themovie.data.local.entity.DataRoom
 import io.github.thang86.themovie.R
+import io.github.thang86.themovie.base.BaseFragment
 import io.github.thang86.themovie.data.local.model.Result
 import io.github.thang86.themovie.utils.Common
-import io.github.thang86.themovie.utils.observe.AutoDisposable
 import io.github.thang86.themovie.view.fragment.homefragment.adapter.MostPopularAdapter
 import io.github.thang86.themovie.view.fragment.homefragment.adapter.NowMovieAdapter
 import io.github.thang86.themovie.view.fragment.homefragment.adapter.StartSnapHelper
@@ -29,13 +24,12 @@ import kotlinx.android.synthetic.main.partial_now_playing_movie.*
  * Created by Thang86
  */
 
-class HomeFragment : BaseFragment(), HomeContract, MostPopularAdapter.OnPopularClickListener {
+class HomeFragment : BaseFragment(), HomeContract, MostPopularAdapter.OnPopularClickListener,
+    NowMovieAdapter.OnItemNowPlayingClick {
     private val presenter: HomePresenter by lazy { HomePresenter(this) }
-    private val autodis = AutoDisposable()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        autodis.bindTo(this.lifecycle)
     }
 
     override fun setView(
@@ -79,12 +73,6 @@ class HomeFragment : BaseFragment(), HomeContract, MostPopularAdapter.OnPopularC
     }
 
 
-    override fun onDataChange(data: List<DataRoom>) {
-        LogUtils.a(data.size)
-
-
-    }
-
     override fun onFetchMovieSuccess(movie: List<Result>) {
         var movieAdapter = NowMovieAdapter();
         recycle_view.apply {
@@ -100,6 +88,8 @@ class HomeFragment : BaseFragment(), HomeContract, MostPopularAdapter.OnPopularC
         }
         var snapHelper = StartSnapHelper()
         snapHelper.attachToRecyclerView(recycle_view)
+
+        movieAdapter.setOnItemNowPlayingClick(this)
     }
 
     override fun onFetchMostPopularSuccess(movie: List<Result>) {
@@ -125,6 +115,12 @@ class HomeFragment : BaseFragment(), HomeContract, MostPopularAdapter.OnPopularC
     override fun onPopularItemClick(movieId: Int) {
         val bundle = Bundle()
         bundle.putString(Common.ARGUMENT_MOVIE, movieId.toString())
+        findNavController().navigate(R.id.detailFragment, bundle)
+    }
+
+    override fun onItemNowPlayingClick(movieId: String) {
+        val bundle = Bundle()
+        bundle.putString(Common.ARGUMENT_MOVIE, movieId)
         findNavController().navigate(R.id.detailFragment, bundle)
     }
 }

@@ -1,9 +1,7 @@
 package io.github.thang86.themovie.view.fragment.detail
 
-import android.util.Log
 import androidx.lifecycle.LifecycleObserver
 import io.github.thang86.themovie.BuildConfig
-import io.github.thang86.themovie.data.local.model.MostPopular
 import io.github.thang86.themovie.data.local.model.detail.MovieDetail
 import io.github.thang86.themovie.data.remote.ApiUtil
 import io.github.thang86.themovie.data.remote.BaseInteractor

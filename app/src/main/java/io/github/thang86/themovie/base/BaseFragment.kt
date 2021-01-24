@@ -16,16 +16,13 @@ import io.github.thang86.themovie.view.activity.MainActivity
  */
 abstract class BaseFragment : Fragment(), BaseView {
     private var context: MainActivity? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun setErrorParent(data: Any) {
-        AlertDialog.Builder(context!!)
-            .setTitle("Your Alert")
+        AlertDialog.Builder(requireContext())
+            .setTitle("Loi roi ban eii")
             .setMessage(data.toString())
             .setCancelable(false)
-            .setPositiveButton("ok") { dialog, which ->
+            .setPositiveButton("ok") { _, _ ->
 
             }.show()
     }

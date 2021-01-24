@@ -7,9 +7,10 @@
 
     <ImageView
         android:id="@+id/image_avatar_playing_movie"
-        android:layout_width="100dp"
-        android:layout_height="140dp"
-        android:layout_margin="2dp"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_140"
+        android:layout_margin="@dimen/dp_2"
+        android:contentDescription="@string/empty"
         android:scaleType="fitXY"
         tools:src="@drawable/ic_launcher_background" />
 </LinearLayout>

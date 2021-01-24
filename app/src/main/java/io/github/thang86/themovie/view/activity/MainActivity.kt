@@ -10,20 +10,10 @@ import io.github.thang86.themovie.base.BaseActivity
  */
 class MainActivity : BaseActivity() {
 
-//    private var item: Data? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView( R.layout.activity_main)
 
     }
-
-
-//    fun setItem(it: String) {
-//        item?.example = it
-//    }
-//
-//    fun getItem(): String {
-//        return item!!.example
-//    }
 
 }

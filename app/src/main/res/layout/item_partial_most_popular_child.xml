@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,8 +8,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:orientation="vertical">
+        android:layout_marginTop="@dimen/dp_2"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -25,9 +27,9 @@
 
                 <View
                     android:id="@+id/image_poster"
-                    android:layout_width="100dp"
-                    android:layout_height="140dp"
-                    android:background="#DFDFDF" />
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="@dimen/dp_140"
+                    android:background="@color/gray_800" />
             </LinearLayout>
 
             <LinearLayout
@@ -41,8 +43,8 @@
                 android:layout_toEndOf="@+id/linear_poster"
                 android:layout_toRightOf="@+id/linear_poster"
                 android:orientation="vertical"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:paddingLeft="@dimen/dp_16"
+                android:paddingRight="@dimen/dp_16">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -51,20 +53,23 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        tools:ignore="UselessParent">
 
                         <View
                             android:layout_width="wrap_content"
-                            android:layout_height="18dp"
+                            android:layout_height="@dimen/dp_18"
+                            android:layout_marginEnd="60dp"
                             android:layout_marginRight="60dp"
-                            android:background="#DFDFDF" />
+                            android:background="@color/gray_800" />
 
                         <View
                             android:layout_width="wrap_content"
-                            android:layout_height="14dp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginRight="150dp"
-                            android:background="#DFDFDF" />
+                            android:layout_height="@dimen/dp_14"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:layout_marginEnd="@dimen/dp_150"
+                            android:layout_marginRight="@dimen/dp_150"
+                            android:background="@color/gray_800" />
 
 
                     </LinearLayout>
@@ -74,53 +79,59 @@
 
                 <View
                     android:layout_width="wrap_content"
-                    android:layout_height="12dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="200dp"
-                    android:background="#DFDFDF" />
+                    android:layout_height="@dimen/dp_12"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginEnd="@dimen/dp_200"
+                    android:layout_marginRight="@dimen/dp_200"
+                    android:background="@color/gray_800" />
 
                 <View
                     android:layout_width="wrap_content"
-                    android:layout_height="12dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="20dp"
-                    android:background="#DFDFDF" />
+                    android:layout_height="@dimen/dp_12"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/gray_800" />
 
                 <View
                     android:layout_width="wrap_content"
-                    android:layout_height="12dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="20dp"
-                    android:background="#DFDFDF" />
+                    android:layout_height="@dimen/dp_12"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/gray_800" />
 
                 <View
                     android:layout_width="wrap_content"
-                    android:layout_height="12dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="20dp"
-                    android:background="#DFDFDF" />
+                    android:layout_height="@dimen/dp_12"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/gray_800" />
 
                 <View
                     android:layout_width="wrap_content"
-                    android:layout_height="12dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="20dp"
-                    android:background="#DFDFDF" />
+                    android:layout_height="@dimen/dp_12"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/gray_800" />
 
                 <View
                     android:layout_width="wrap_content"
-                    android:layout_height="12dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="20dp"
-                    android:background="#DFDFDF" />
+                    android:layout_height="@dimen/dp_12"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:layout_marginEnd="@dimen/dp_20"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:background="@color/gray_800" />
             </LinearLayout>
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="2dp"
-            android:background="#DFDFDF" />
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginTop="@dimen/dp_2"
+            android:background="@color/gray_800" />
 
     </LinearLayout>
 </LinearLayout>

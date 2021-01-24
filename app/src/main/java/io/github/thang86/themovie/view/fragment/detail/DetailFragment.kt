@@ -1,20 +1,19 @@
 package io.github.thang86.themovie.view.fragment.detail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.squareup.picasso.Picasso
 import io.github.thang86.themovie.BuildConfig
 import io.github.thang86.themovie.R
-import io.github.thang86.themovie.data.local.model.Result
 import io.github.thang86.themovie.data.local.model.detail.MovieDetail
 import io.github.thang86.themovie.utils.Common
-import io.github.thang86.themovie.view.fragment.homefragment.HomeFragment
-import io.github.thang86.themovie.view.fragment.homefragment.HomePresenter
 import kotlinx.android.synthetic.main.fragment_detail.*
+import kotlinx.android.synthetic.main.partial_detail_content_movie.*
 
 /**
  *
@@ -35,10 +34,8 @@ class DetailFragment : Fragment(), DetailContract {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail, container, false)
-    }
+    ): View? = inflater.inflate(R.layout.fragment_detail, container, false)
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,7 +44,7 @@ class DetailFragment : Fragment(), DetailContract {
 
     override fun onFetchDetailMovieSuccess(movie: MovieDetail) {
         val imageUrl = BuildConfig.IMAGE_URL.plus(movie.posterPath)
-        val context= context
+        val context = context
         Picasso.with(context)
             .load(imageUrl)
             .placeholder(
@@ -73,15 +70,24 @@ class DetailFragment : Fragment(), DetailContract {
     }
 
     override fun onLoading() {
+        partial_detail_loading.visibility = View.VISIBLE
+        partial_detail_content_movie.visibility = View.GONE
     }
 
     override fun onLoadComplete() {
+        partial_detail_loading.visibility = View.GONE
+        partial_detail_content_movie.visibility = View.VISIBLE
     }
 
     override fun onError(mess: String) {
+        Log.d(TAG, mess)
     }
 
     override fun setErrorParent(data: Any) {
+    }
+
+    companion object {
+        private val TAG = DetailFragment::class.java.simpleName
     }
 
 
